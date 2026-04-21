@@ -9,7 +9,6 @@ async function loadImages() {
     render(images);
   } catch (err) {
     console.error("could not load images.json", err);
-    renderPlaceholders();
   }
 }
 
@@ -20,20 +19,15 @@ function render(images) {
     card.className = "card";
     const img = document.createElement("img");
     img.src = `images/${item.file}`;
-    img.alt = item.caption || item.file;
+    img.alt = "";
     img.loading = "lazy";
     card.appendChild(img);
     card.addEventListener("click", () => {
       lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
       lightbox.showModal();
     });
     grid.appendChild(card);
   }
-}
-
-function renderPlaceholders() {
-  grid.innerHTML = "";
 }
 
 lightbox.addEventListener("click", () => lightbox.close());
