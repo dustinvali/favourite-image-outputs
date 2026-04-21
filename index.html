@@ -12,13 +12,15 @@
     </header>
     <main id="grid" class="grid"></main>
     <dialog id="lightbox">
-      <button id="prev-btn" class="nav-btn" aria-label="Previous">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-      </button>
-      <img id="lightbox-img" alt="" />
-      <button id="next-btn" class="nav-btn" aria-label="Next">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-      </button>
+      <div class="lightbox-inner">
+        <button id="prev-btn" class="nav-btn" type="button" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <img id="lightbox-img" alt="" />
+        <button id="next-btn" class="nav-btn" type="button" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
     </dialog>
     <script src="script.js"></script>
   </body>
