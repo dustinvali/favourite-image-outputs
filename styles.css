@@ -1,0 +1,119 @@
+:root {
+  --bg: #0a0a0a;
+  --fg: #f4f4f4;
+  --muted: #888;
+  --border: rgba(255, 255, 255, 0.9);
+  --radius: 22px;
+  --gap: 20px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  padding: 48px 32px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+  padding: 24px 32px 64px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.card {
+  aspect-ratio: 4 / 3;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: #000;
+  overflow: hidden;
+  cursor: zoom-in;
+  position: relative;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #fff;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card .caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 12px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  font-size: 13px;
+  color: #eee;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.card:hover .caption { opacity: 1; }
+
+.card.empty {
+  cursor: default;
+}
+
+.card.empty:hover {
+  transform: none;
+  border-color: var(--border);
+}
+
+dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+dialog img {
+  max-width: 95vw;
+  max-height: 95vh;
+  border-radius: 12px;
+  display: block;
+}
