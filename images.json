@@ -1,1 +1,6 @@
-[]
+[
+  { "file": "gpt1-paper.png", "caption": "GPT-1 paper poster" },
+  { "file": "typography.png", "caption": "Typography magazine cover" },
+  { "file": "cantor-diagonalization.png", "caption": "Cantor's Diagonalization — visual proof" },
+  { "file": "baseball-toronto.png", "caption": "Handwritten history of baseball in Toronto" }
+]

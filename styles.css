@@ -2,9 +2,7 @@
   --bg: #0a0a0a;
   --fg: #f4f4f4;
   --muted: #888;
-  --border: rgba(255, 255, 255, 0.9);
-  --radius: 22px;
-  --gap: 20px;
+  --gap: 16px;
 }
 
 * { box-sizing: border-box; }
@@ -38,82 +36,56 @@ header p {
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--gap);
+  column-count: 3;
+  column-gap: var(--gap);
   padding: 24px 32px 64px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 @media (max-width: 900px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid { column-count: 2; }
 }
 
 @media (max-width: 520px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid { column-count: 1; }
 }
 
 .card {
-  aspect-ratio: 4 / 3;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  background: #000;
-  overflow: hidden;
+  display: block;
+  margin: 0 0 var(--gap);
+  break-inside: avoid;
   cursor: zoom-in;
-  position: relative;
-  transition: transform 160ms ease, border-color 160ms ease;
+  transition: transform 180ms ease, opacity 180ms ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  border-color: #fff;
+  opacity: 0.92;
 }
 
 .card img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
-}
-
-.card .caption {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 12px 14px;
-  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-  font-size: 13px;
-  color: #eee;
-  opacity: 0;
-  transition: opacity 160ms ease;
-}
-
-.card:hover .caption { opacity: 1; }
-
-.card.empty {
-  cursor: default;
-}
-
-.card.empty:hover {
-  transform: none;
-  border-color: var(--border);
+  border-radius: 0;
 }
 
 dialog {
   border: none;
   background: transparent;
   padding: 0;
-  max-width: 95vw;
-  max-height: 95vh;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.92);
 }
 
 dialog img {
   max-width: 95vw;
   max-height: 95vh;
-  border-radius: 12px;
   display: block;
+  margin: auto;
 }

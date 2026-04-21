@@ -14,7 +14,6 @@ async function loadImages() {
 }
 
 function render(images) {
-  if (!images.length) return renderPlaceholders();
   grid.innerHTML = "";
   for (const item of images) {
     const card = document.createElement("div");
@@ -24,12 +23,6 @@ function render(images) {
     img.alt = item.caption || item.file;
     img.loading = "lazy";
     card.appendChild(img);
-    if (item.caption) {
-      const cap = document.createElement("div");
-      cap.className = "caption";
-      cap.textContent = item.caption;
-      card.appendChild(cap);
-    }
     card.addEventListener("click", () => {
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
@@ -41,11 +34,6 @@ function render(images) {
 
 function renderPlaceholders() {
   grid.innerHTML = "";
-  for (let i = 0; i < 12; i++) {
-    const card = document.createElement("div");
-    card.className = "card empty";
-    grid.appendChild(card);
-  }
 }
 
 lightbox.addEventListener("click", () => lightbox.close());
